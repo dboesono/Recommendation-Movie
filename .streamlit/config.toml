@@ -1,0 +1,7 @@
+[theme]
+base = "dark"
+primaryColor = "#E50914"  # Netflix red
+backgroundColor = "#141414"  # Dark background similar to Netflix's main background
+secondaryBackgroundColor = "#221f1f"  # Slightly lighter shade for secondary elements
+textColor = "#FFFFFF"  # White text for better contrast on dark background
+font = "sans-serif"

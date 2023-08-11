@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def getTrainingData():
-    DATA_PATH = "../data/interim/training.csv"
-    return np.genfromtxt(DATA_PATH, delimiter=",", dtype=np.int)
+    DATA_PATH = "data/interim/training.csv"
+    return np.genfromtxt(DATA_PATH, delimiter=",", dtype=int)
 
 def getValidationData():
-    DATA_PATH = "../data/interim/validation.csv"
-    return np.genfromtxt(DATA_PATH, delimiter=",", dtype=np.int)
+    DATA_PATH = "data/interim/validation.csv"
+    return np.genfromtxt(DATA_PATH, delimiter=",", dtype=int)
 
 def getUsefulStats(training):
     movies = [x[0] for x in training]
