@@ -2,7 +2,7 @@ import numpy as np
 import src.models.projectLib as lib
 import matplotlib.pyplot as plt
 
-class model:
+class Model:
     def __init__(self):
         # Initialize the mean rating, b parameter, and training statistics
         self.rBar = None
