@@ -3,8 +3,13 @@ Recommendation-Movie
 
 A short description of the project.
 
-Project Organization
-------------
+## Team Members
+| Student ID | Student Name   | Email                        
+| :----------: | :--------------: | :------------------------------: | 
+| 120040022  | Darren Boesono        | 120040022@link.cuhk.edu.cn     | 
+| 120040002  | Joseph Ariel Christopher Teja          | 120040002@link.cuhk.edu.cn     | 
+
+## Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
