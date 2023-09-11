@@ -49,6 +49,14 @@ class Model:
             if rating < 1: rating = 1.0
             p[i] = rating
         return p
+    
+    def predict_for_user(self, user_id):
+        # Predict ratings for all movies for a given user
+        all_movies = np.arange(self.trStats["n_movies"])
+        user_array = np.full(self.trStats["n_movies"], user_id)
+        
+        # Output results
+        return self.predict(all_movies, user_array)
 
     # Plotting function to visualize the RMSE vs regularization parameter
     def plot(self):

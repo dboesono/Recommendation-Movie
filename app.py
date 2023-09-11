@@ -9,8 +9,12 @@ training_data = lib.getTrainingData()
 unique_movie_ids = np.unique(training_data[:, 0])  # Assuming Movie_ID is the first column
 movie_titles = ["Movie " + str(int(movie_id)) for movie_id in unique_movie_ids]
 
+def get_user_id(training_data):
+    # Get the maximum user_id from the training data and add 1 to create a new user_id
+    return np.max(training_data[:, 1]) # Assuming user_id is the second column
+
 # Function to get top recommendations
-def get_top_recommendations(user_ratings, model_name):
+def get_top_recommendations(user_ratings, model_name, user_id):
     # Load the training data
     training_data = lib.getTrainingData()
     validation_data = lib.getValidationData()
@@ -18,15 +22,16 @@ def get_top_recommendations(user_ratings, model_name):
     trStats = lib.getUsefulStats(training_data)
     allUsersRatings = lib.getAllUsersRatings(trStats["u_users"], training_data)
 
-    if model_name == "RBM":
+    if model_name == "Restricted Boltzmann Machine (RBM)":
         model = RBM.RBMRecommender(F=20, epochs=100, learning_rate=0.02)
+        model.train(training_data, validation_data)
+        predicted_ratings = model.predict_for_users(trStats, allUsersRatings)
     else:
-        # Replace with your BaselinePredictor class
+        # Use the BaselinePredictor class
         model = BP.Model()
-
-    model.train(training_data, validation_data)
-    predicted_ratings = model.predict_for_users(trStats, allUsersRatings)
-
+        model.fit(training_data, validation_data)  
+        predicted_ratings = model.predict_for_user(user_id)  # You need to determine the user_id
+    
     # Get top 3 movie indices
     top_indices = np.argsort(predicted_ratings)[-3:]
     
@@ -36,6 +41,7 @@ def get_top_recommendations(user_ratings, model_name):
     # Return the top movie titles
     return [movie_titles[i] for i in top_indices]
 
+
 # Streamlit app
 def main():
 
@@ -43,7 +49,7 @@ def main():
 
     # Sidebar for user inputs
     st.sidebar.header("User Input Parameters")
-    model = st.sidebar.radio("Select Model", ["RBM", "Baseline Predictor"])
+    model = st.sidebar.radio("Select Model", ["Restricted Boltzmann Machine (RBM)", "Baseline Predictor"])
 
     st.markdown("## 🎥 Rate Movies")
     user_ratings = {}
@@ -54,10 +60,12 @@ def main():
         rating = st.slider(f"Rate {movie} (0 = not seen)", 0, 5, 0)
         if rating > 0:
             user_ratings[movie] = rating
+            
+    user_id = get_user_id(training_data)
 
     if st.button("Get Recommendations"):
         # Get recommendations based on user ratings
-        recommended_movies = get_top_recommendations(user_ratings, model)
+        recommended_movies = get_top_recommendations(user_ratings, model, user_id)
 
         # Display recommendations
         st.markdown(f"## 🌟 Top Movie Recommendations using {model}")
