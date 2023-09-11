@@ -1,7 +1,6 @@
-Recommendation-Movie
+Movie Recommender App
 ==============================
-
-A short description of the project.
+This project was undertaken as part of the course **DDA4260: Networked Life** during Term 2, 2022/2023 Academic Year at The Chinese University of Hong Kong, Shenzhen (CUHK-SZ).
 
 ## Team Members
 | Student ID | Student Name   | Email                        
@@ -55,6 +54,56 @@ A short description of the project.
     │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+
+## Project Description
+Movie recommendation systems are a crucial part of modern streaming platforms like Netflix, Hulu, and Amazon Prime. They help in enhancing the user experience by suggesting movies based on their preferences. This project aims to build a robust recommendation system using two different models:
+
+1. Restricted Boltzmann Machine (RBM): A type of artificial neural network used for unsupervised learning. It learns the probability distribution over its set of inputs. The RBM model in this project is visualized below. 
+![RBM Neural Network](./resources/rbm_nn.jpg)
+
+
+2. Baseline Predictor Model: This model predicts a movie's rating based on the global average rating, the movie's average rating, and the user's average rating. The mathematical formula used for prediction is:
+    $$
+    \hat{r}_{ui} = \mu + b_u + b_i
+    $$ 
+    Where:
+
+    $\hat{r}_{ui}$ is the the predicted rating for user $\mu$ and movie $i$.
+    
+    $\mu$ is the global average rating.
+
+    $b_u$ is the bias associated with user $\mu$.
+
+    $b_i$ is the bias associated with movie $i$.
+
+## Getting Started
+
+### Prerequisites
+Ensure you have Python 3 installed on your machine.
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dboesono/Recommendation-Movie.git
+
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Recommendation-Movie
+   ```
+
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Running the App
+After installing the necessary packages, you can run the app using:
+```bash
+streamlit run app.py
+```
+This will launch the web app in your default browser. Rate some movies and get personalized recommendations!
+
 
 
 --------
