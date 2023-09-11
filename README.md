@@ -59,13 +59,16 @@ This project was undertaken as part of the course **DDA4260: Networked Life** du
 Movie recommendation systems are a crucial part of modern streaming platforms like Netflix, Hulu, and Amazon Prime. They help in enhancing the user experience by suggesting movies based on their preferences. This project aims to build a robust recommendation system using two different models:
 
 1. Restricted Boltzmann Machine (RBM): A type of artificial neural network used for unsupervised learning. It learns the probability distribution over its set of inputs. The RBM model in this project is visualized below. 
+
 ![RBM Neural Network](./resources/rbm_nn.jpg)
 
 
 2. Baseline Predictor Model: This model predicts a movie's rating based on the global average rating, the movie's average rating, and the user's average rating. The mathematical formula used for prediction is:
-    $$
-    \hat{r}_{ui} = \mu + b_u + b_i
-    $$ 
+
+
+    $$\hat{r}_{ui} = \mu + b_u + b_i$$
+
+
     Where:
 
     $\hat{r}_{ui}$ is the the predicted rating for user $\mu$ and movie $i$.
