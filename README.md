@@ -94,8 +94,24 @@ Ensure you have Python 3 installed on your machine.
    ```bash
    cd Recommendation-Movie
    ```
+3. Create a virtual environment using the command:
+   ```bash
+   python -m venv env
+   ```
 
-3. Install the required packages:
+4. Activate the virtual environment according to your operating system:
+   - On Windows:
+     
+     ```bash
+     .\env\Scripts\activate
+     ```
+   - On Unix or MacOS:
+     
+     ```bash
+     source env/bin/activate
+     ```
+
+5. Install the required packages:
    ```bash
    pip install -r requirements.txt
    ```
