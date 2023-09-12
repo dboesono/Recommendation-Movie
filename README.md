@@ -1,6 +1,6 @@
 Movie Recommender App
 ==============================
-This project was undertaken as part of the course **DDA4260: Networked Life** during Term 2, 2022/2023 Academic Year at The Chinese University of Hong Kong, Shenzhen (CUHK-SZ).
+This project was undertaken as part of the course **DDA4260: Networked Life** during Term 2, 2022/2023 at The Chinese University of Hong Kong, Shenzhen (CUHK-SZ).
 
 ## Team Members
 | Student ID | Student Name   | Email                        
